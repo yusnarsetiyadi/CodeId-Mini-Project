@@ -1,0 +1,1354 @@
+definitions:
+  dto.AuthLoginRequest:
+    properties:
+      geolocation:
+        $ref: '#/definitions/dto.Geolocation'
+      mobilephone:
+        example: "+6281234567890"
+        type: string
+      password:
+        example: Test12345@
+        type: string
+    required:
+    - geolocation
+    - mobilephone
+    - password
+    type: object
+  dto.AuthLoginResponse:
+    properties:
+      access_token:
+        example: your access token
+        type: string
+      refresh_token:
+        example: your refresh token
+        type: string
+    type: object
+  dto.AuthLogoutResponse:
+    properties:
+      message:
+        type: string
+    type: object
+  dto.AuthSplashRequest:
+    properties:
+      access_token:
+        example: your access token
+        type: string
+      refresh_token:
+        example: your refresh token
+        type: string
+    type: object
+  dto.AuthSplashResponse:
+    properties:
+      access_token:
+        example: your access token
+        type: string
+      refresh_token:
+        example: your refresh token
+        type: string
+    type: object
+  dto.CreateEmployeeRequestWithBase64:
+    properties:
+      company:
+        example: CODE.ID
+        type: string
+      companyid:
+        example: 43
+        type: integer
+      division:
+        example: Maintenance
+        type: string
+      divisionid:
+        example: 16
+        type: integer
+      email:
+        example: yusnar@code.id
+        type: string
+      employeephoto:
+        $ref: '#/definitions/dto.EmployeePhoto'
+      joindate:
+        example: "2024-01-24"
+        type: string
+      name:
+        example: Yusnar Setiyadi
+        type: string
+      phonenumber:
+        example: "+6281234567812"
+        type: string
+      supervisor:
+        example: Herru Purnomo Santoso
+        type: string
+      supervisorid:
+        example: 11
+        type: integer
+    required:
+    - company
+    - companyid
+    - division
+    - divisionid
+    - employeephoto
+    - joindate
+    - name
+    - supervisor
+    - supervisorid
+    type: object
+  dto.EmployeeGetAllResponse:
+    properties:
+      count:
+        type: integer
+      item:
+        items:
+          $ref: '#/definitions/model.EmployeeGetAllResponse'
+        type: array
+    type: object
+  dto.EmployeePhoto:
+    properties:
+      data:
+        example: base64 value
+        type: string
+      name:
+        example: gambar.png
+        type: string
+      size:
+        example: 98220
+        type: integer
+      type:
+        example: image/png
+        type: string
+    type: object
+  dto.EmployeeSupervisorGetAllResponse:
+    properties:
+      count:
+        type: integer
+      item:
+        items:
+          $ref: '#/definitions/model.EmployeeSupervisorGetAllResponse'
+        type: array
+    type: object
+  dto.Geolocation:
+    properties:
+      asn:
+        example: AS23700 Linknet-Fastnet ASN
+        type: string
+      city:
+        example: Jakarta
+        type: string
+      country:
+        example: Indonesia
+        type: string
+      country_code:
+        example: ID
+        type: string
+      hostname:
+        example: fm-dyn-111-94-121-97.fast.net.id.
+        type: string
+      ip:
+        example: 111.94.121.97
+        type: string
+      latitude:
+        example: -6.1743998527526855
+        type: number
+      longitude:
+        example: 106.82939910888672
+        type: number
+      netmask:
+        example: 16
+        type: integer
+      post_code:
+        example: "15710"
+        type: string
+    type: object
+  dto.GetAllCompanyResponse:
+    properties:
+      count:
+        type: integer
+      item:
+        items:
+          $ref: '#/definitions/model.CompanyEntityModel'
+        type: array
+    type: object
+  dto.GetAllDivisionResponse:
+    properties:
+      count:
+        type: integer
+      item:
+        items:
+          $ref: '#/definitions/model.GetAllDivisionResponse'
+        type: array
+    type: object
+  dto.GetDataTokenResponse:
+    properties:
+      email:
+        type: string
+      id:
+        type: integer
+      identityid:
+        type: integer
+      isactive:
+        type: boolean
+      islocked:
+        type: boolean
+      mobilephone:
+        type: string
+      name:
+        type: string
+      role:
+        type: string
+      roleid:
+        type: integer
+    type: object
+  dto.GetFeatureListResponse:
+    properties:
+      count:
+        type: integer
+      item:
+        items:
+          $ref: '#/definitions/model.FeatureListResponse'
+        type: array
+    type: object
+  dto.GetFeatureSubResponse:
+    properties:
+      count:
+        type: integer
+      item:
+        items:
+          $ref: '#/definitions/model.FeatureSubResponse'
+        type: array
+    type: object
+  dto.ResponseMessage:
+    properties:
+      message:
+        type: string
+    type: object
+  dto.UpdateEmployeeRequestWithBase64:
+    properties:
+      company:
+        example: CODE.ID
+        type: string
+      companyid:
+        example: 43
+        type: integer
+      division:
+        example: Maintenance
+        type: string
+      divisionid:
+        example: 16
+        type: integer
+      email:
+        example: fahrul@code.id
+        type: string
+      employeephoto:
+        $ref: '#/definitions/dto.EmployeePhoto'
+      isactive:
+        example: false
+        type: boolean
+      joindate:
+        example: "2024-01-25"
+        type: string
+      name:
+        example: Fahrul Update
+        type: string
+      phonenumber:
+        example: "+6281234567813"
+        type: string
+      resigndate:
+        example: "2024-01-25"
+        type: string
+      supervisor:
+        example: Herru Purnomo Santoso
+        type: string
+      supervisorid:
+        example: 11
+        type: integer
+    type: object
+  dto.UserChangePasswordRequest:
+    properties:
+      new_password:
+        example: Test12345@
+        type: string
+      old_password:
+        example: Test1234@
+        type: string
+    type: object
+  dto.UserChangePasswordResponse:
+    properties:
+      message:
+        type: string
+    type: object
+  model.CompanyEntityModel:
+    properties:
+      id:
+        type: integer
+      invoiceduedate:
+        type: integer
+      isvendor:
+        type: boolean
+      name:
+        type: string
+    type: object
+  model.EmployeeGetAllResponse:
+    properties:
+      company:
+        type: string
+      companyid:
+        type: integer
+      division:
+        type: string
+      divisionid:
+        type: integer
+      email:
+        type: string
+      employeephoto:
+        type: string
+      id:
+        type: integer
+      isactive:
+        type: boolean
+      joindate:
+        type: string
+      name:
+        type: string
+      phonenumber:
+        type: string
+      resigndate:
+        type: string
+      supervisor:
+        type: string
+      supervisorid:
+        type: integer
+      uniquekey:
+        type: string
+    type: object
+  model.EmployeeGetByIdResponse:
+    properties:
+      company:
+        type: string
+      division:
+        type: string
+      email:
+        type: string
+      employeephoto:
+        type: string
+      isactive:
+        type: boolean
+      joindate:
+        type: string
+      name:
+        type: string
+      phonenumber:
+        type: string
+      resigndate:
+        type: string
+      supervisor:
+        type: string
+      uniquekey:
+        type: string
+    type: object
+  model.EmployeeSupervisorGetAllResponse:
+    properties:
+      company:
+        type: string
+      companyid:
+        type: integer
+      division:
+        type: string
+      divisionid:
+        type: integer
+      email:
+        type: string
+      employeephoto:
+        type: string
+      id:
+        type: integer
+      isactive:
+        type: boolean
+      joindate:
+        type: string
+      name:
+        type: string
+      phonenumber:
+        type: string
+      resigndate:
+        type: string
+      supervisor:
+        type: string
+      supervisorid:
+        type: integer
+      uniquekey:
+        type: string
+    type: object
+  model.FeatureListResponse:
+    properties:
+      allowadd:
+        type: boolean
+      allowdelete:
+        type: boolean
+      allowprint:
+        type: boolean
+      allowupdate:
+        type: boolean
+      allowview:
+        type: boolean
+      id:
+        type: integer
+      name:
+        type: string
+    type: object
+  model.FeatureSubResponse:
+    properties:
+      allowadd:
+        type: boolean
+      allowdelete:
+        type: boolean
+      allowprint:
+        type: boolean
+      allowupdate:
+        type: boolean
+      allowview:
+        type: boolean
+      id:
+        type: integer
+      name:
+        type: string
+    type: object
+  model.GetAllDivisionResponse:
+    properties:
+      id:
+        type: integer
+      isactive:
+        type: boolean
+      name:
+        type: string
+      parameter:
+        type: string
+      parameterid:
+        type: integer
+    type: object
+  response.Meta:
+    properties:
+      error_id:
+        type: string
+      info:
+        type: string
+      message:
+        type: string
+      success:
+        default: true
+        type: boolean
+    type: object
+  response.errorResponse:
+    properties:
+      data: {}
+      description: {}
+      meta:
+        $ref: '#/definitions/response.Meta'
+    type: object
+info:
+  contact: {}
+  description: This is a doc for compass_mini_api.
+  title: compass_mini_api
+  version: 1.0.0
+paths:
+  /api/v1/auth/get_data_token:
+    get:
+      consumes:
+      - application/json
+      description: Get Data Token
+      parameters:
+      - description: Bearer Token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dto.GetDataTokenResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.errorResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.errorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.errorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.errorResponse'
+      security:
+      - BearerAuth: []
+      summary: Get Data Token
+      tags:
+      - Auth
+  /api/v1/auth/login:
+    post:
+      consumes:
+      - application/json
+      description: Login user, get your Geolocation from https://ip.nf/me.json
+      parameters:
+      - description: entity
+        example: Android
+        in: query
+        name: entity
+        required: true
+        type: string
+      - description: request body
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dto.AuthLoginRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dto.AuthLoginResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.errorResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.errorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.errorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.errorResponse'
+      summary: Login user
+      tags:
+      - Auth
+  /api/v1/auth/logout:
+    delete:
+      consumes:
+      - application/json
+      description: Logout user
+      parameters:
+      - description: Bearer Token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dto.AuthLogoutResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.errorResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.errorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.errorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.errorResponse'
+      security:
+      - BearerAuth: []
+      summary: Logout user
+      tags:
+      - Auth
+  /api/v1/auth/splash:
+    post:
+      consumes:
+      - application/json
+      description: Splash screen
+      parameters:
+      - description: request body
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dto.AuthSplashRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dto.AuthSplashResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.errorResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.errorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.errorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.errorResponse'
+      summary: Splash screen
+      tags:
+      - Auth
+  /api/v1/company:
+    get:
+      consumes:
+      - application/json
+      description: Get All Company
+      parameters:
+      - description: Bearer Token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: limit
+        example: 10
+        in: query
+        name: limit
+        required: true
+        type: integer
+      - description: offset
+        example: 0
+        in: query
+        name: offset
+        required: true
+        type: integer
+      - description: filter by conditions with query encode value
+        example: '<br>example string json: [{"column":"name","value":"code","comparation":"%"}]<br>example
+          query encode: %5B%7B%22column%22%3A%22name%22%2C%22value%22%3A%22code%22%2C%22comparation%22%3A%22%25%22%7D%5D'
+        in: query
+        name: conditions
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dto.GetAllCompanyResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.errorResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.errorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.errorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.errorResponse'
+      security:
+      - BearerAuth: []
+      summary: Get All Company
+      tags:
+      - Company
+  /api/v1/employee:
+    get:
+      consumes:
+      - application/json
+      description: Get All Employee
+      parameters:
+      - description: Bearer Token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: limit
+        example: 10
+        in: query
+        name: limit
+        required: true
+        type: integer
+      - description: offset
+        example: 0
+        in: query
+        name: offset
+        required: true
+        type: integer
+      - description: order
+        example: name / company / division / supervisor / email / joindate
+        in: query
+        name: order
+        type: string
+      - description: direction
+        example: asc / desc
+        in: query
+        name: direction
+        type: string
+      - description: filter by conditions with query encode value
+        example: '<br>example string json: [{"column":"name","value":"yusnar","comparation":"%"},{"column":"companyid","value":"43","comparation":"="},{"column":"joindate","value":"2024-01-24_2024-01-28","comparation":"between"}]<br>example
+          query encode: %5B%7B%22column%22%3A%22name%22%2C%22value%22%3A%22yusnar%22%2C%22comparation%22%3A%22%25%22%7D%2C%7B%22column%22%3A%22companyid%22%2C%22value%22%3A%2243%22%2C%22comparation%22%3A%22%3D%22%7D%2C%7B%22column%22%3A%22joindate%22%2C%22value%22%3A%222024-01-24_2024-01-28%22%2C%22comparation%22%3A%22between%22%7D%5D'
+        in: query
+        name: conditions
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dto.EmployeeGetAllResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.errorResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.errorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.errorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.errorResponse'
+      security:
+      - BearerAuth: []
+      summary: Get All Employee
+      tags:
+      - Employee
+    post:
+      consumes:
+      - multipart/form-data
+      description: Create employee
+      parameters:
+      - description: Bearer Token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - example: CODE.ID
+        in: formData
+        name: company
+        required: true
+        type: string
+      - example: 43
+        in: formData
+        name: companyid
+        required: true
+        type: integer
+      - example: Maintenance
+        in: formData
+        name: division
+        required: true
+        type: string
+      - example: 16
+        in: formData
+        name: divisionid
+        required: true
+        type: integer
+      - example: yusnar@code.id
+        in: formData
+        name: email
+        type: string
+      - example: "2024-01-24"
+        in: formData
+        name: joindate
+        required: true
+        type: string
+      - example: Yusnar Setiyadi
+        in: formData
+        name: name
+        required: true
+        type: string
+      - example: "+6281234567812"
+        in: formData
+        name: phonenumber
+        type: string
+      - example: Herru Purnomo Santoso
+        in: formData
+        name: supervisor
+        required: true
+        type: string
+      - example: 11
+        in: formData
+        name: supervisorid
+        required: true
+        type: integer
+      - description: image
+        in: formData
+        name: employeephoto
+        type: file
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dto.ResponseMessage'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.errorResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.errorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.errorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.errorResponse'
+      security:
+      - BearerAuth: []
+      summary: Create employee
+      tags:
+      - Employee
+  /api/v1/employee/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Get Employee By Id
+      parameters:
+      - description: Bearer Token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: id employee
+        example: 1
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.EmployeeGetByIdResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.errorResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.errorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.errorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.errorResponse'
+      security:
+      - BearerAuth: []
+      summary: Get Employee By Id
+      tags:
+      - Employee
+    put:
+      consumes:
+      - multipart/form-data
+      description: Update employee
+      parameters:
+      - description: Bearer Token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: id employee
+        example: 1
+        in: path
+        name: id
+        required: true
+        type: integer
+      - example: CODE.ID
+        in: formData
+        name: company
+        type: string
+      - example: 43
+        in: formData
+        name: companyid
+        type: integer
+      - example: Maintenance
+        in: formData
+        name: division
+        type: string
+      - example: 16
+        in: formData
+        name: divisionid
+        type: integer
+      - example: fahrul@code.id
+        in: formData
+        name: email
+        type: string
+      - example: false
+        in: formData
+        name: isactive
+        type: boolean
+      - example: "2024-01-25"
+        in: formData
+        name: joindate
+        type: string
+      - example: Fahrul Update
+        in: formData
+        name: name
+        type: string
+      - example: "+6281234567813"
+        in: formData
+        name: phonenumber
+        type: string
+      - example: "2024-01-25"
+        in: formData
+        name: resigndate
+        type: string
+      - example: Herru Purnomo Santoso
+        in: formData
+        name: supervisor
+        type: string
+      - example: 11
+        in: formData
+        name: supervisorid
+        type: integer
+      - description: image
+        in: formData
+        name: employeephoto
+        type: file
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dto.ResponseMessage'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.errorResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.errorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.errorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.errorResponse'
+      security:
+      - BearerAuth: []
+      summary: Update employee
+      tags:
+      - Employee
+  /api/v1/employee/employeephoto/{base64}:
+    get:
+      consumes:
+      - application/json
+      description: Get Employee Photo
+      parameters:
+      - description: Bearer Token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: base64
+        in: path
+        name: base64
+        required: true
+        type: string
+      produces:
+      - multipart/form-data
+      responses:
+        "200":
+          description: OK
+        "400":
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+        "500":
+          description: Internal Server Error
+      security:
+      - BearerAuth: []
+      summary: Get Employee Photo
+      tags:
+      - Employee
+  /api/v1/employee/supervisor:
+    get:
+      consumes:
+      - application/json
+      description: Get All Employee for Supervisor
+      parameters:
+      - description: Bearer Token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: limit
+        example: 10
+        in: query
+        name: limit
+        required: true
+        type: integer
+      - description: offset
+        example: 0
+        in: query
+        name: offset
+        required: true
+        type: integer
+      - description: filter by conditions with query encode value
+        example: '<br>example string json: [{"column":"name","value":"herru","comparation":"%"}]<br>example
+          query encode: %5B%7B%22column%22%3A%22name%22%2C%22value%22%3A%22herru%22%2C%22comparation%22%3A%22%25%22%7D%5D'
+        in: query
+        name: conditions
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dto.EmployeeSupervisorGetAllResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.errorResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.errorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.errorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.errorResponse'
+      security:
+      - BearerAuth: []
+      summary: Get All Employee for Supervisor
+      tags:
+      - Employee
+  /api/v1/employee/with_base64:
+    post:
+      consumes:
+      - application/json
+      description: Create employee With Base64, please fill data base64 with Plain-text
+        - just The Base64 value, see https://base64.guru/converter/encode/file
+      parameters:
+      - description: Bearer Token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: request body
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dto.CreateEmployeeRequestWithBase64'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dto.ResponseMessage'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.errorResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.errorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.errorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.errorResponse'
+      security:
+      - BearerAuth: []
+      summary: Create employee With Base64
+      tags:
+      - Employee
+  /api/v1/employee/with_base64/{id}:
+    put:
+      consumes:
+      - application/json
+      description: Update employee With Base64, please fill data base64 with Plain-text
+        - just The Base64 value, see https://base64.guru/converter/encode/file
+      parameters:
+      - description: Bearer Token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: id employee
+        example: 1
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: request body
+        in: body
+        name: request
+        schema:
+          $ref: '#/definitions/dto.UpdateEmployeeRequestWithBase64'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dto.ResponseMessage'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.errorResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.errorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.errorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.errorResponse'
+      security:
+      - BearerAuth: []
+      summary: Update employee With Base64
+      tags:
+      - Employee
+  /api/v1/feature/list:
+    get:
+      consumes:
+      - application/json
+      description: Get Feature List Items
+      parameters:
+      - description: Bearer Token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: entity
+        example: Android
+        in: query
+        name: entity
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dto.GetFeatureListResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.errorResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.errorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.errorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.errorResponse'
+      security:
+      - BearerAuth: []
+      summary: Get Feature List Items
+      tags:
+      - Feature
+  /api/v1/feature/sub/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Get Feature Sub List Items
+      parameters:
+      - description: Bearer Token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: entity
+        example: Android
+        in: query
+        name: entity
+        required: true
+        type: string
+      - description: id feature
+        example: 1
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dto.GetFeatureSubResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.errorResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.errorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.errorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.errorResponse'
+      security:
+      - BearerAuth: []
+      summary: Get Feature Sub List Items
+      tags:
+      - Feature
+  /api/v1/parameteritem/get_all_division:
+    get:
+      consumes:
+      - application/json
+      description: Get All Division
+      parameters:
+      - description: Bearer Token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: limit
+        example: 10
+        in: query
+        name: limit
+        required: true
+        type: integer
+      - description: offset
+        example: 0
+        in: query
+        name: offset
+        required: true
+        type: integer
+      - description: filter by conditions with query encode value
+        example: '<br>example string json: [{"column":"name","value":"Maintenance","comparation":"="}]<br>example
+          query encode: %5B%7B%22column%22%3A%22name%22%2C%22value%22%3A%22Maintenance%22%2C%22comparation%22%3A%22%3D%22%7D%5D'
+        in: query
+        name: conditions
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dto.GetAllDivisionResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.errorResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.errorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.errorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.errorResponse'
+      security:
+      - BearerAuth: []
+      summary: Get All Division
+      tags:
+      - ParameterItem
+  /api/v1/user/change_password/{id}:
+    post:
+      consumes:
+      - application/json
+      description: Change Password
+      parameters:
+      - description: Bearer Token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: id user
+        example: 1
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: request body
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dto.UserChangePasswordRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dto.UserChangePasswordResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/response.errorResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.errorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/response.errorResponse'
+      security:
+      - BearerAuth: []
+      summary: Change Password
+      tags:
+      - User
+swagger: "2.0"
